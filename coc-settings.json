@@ -1,0 +1,51 @@
+{
+  "languageserver": {
+    "ccls": {
+      "command": "ccls",
+      "filetypes": ["c", "cpp", "objc", "objcpp"],
+      "rootPatterns": [
+        ".ccls",
+        "compile_commands.json",
+        ".vim/",
+        ".git/",
+        ".hg/"
+      ],
+      "initializationOptions": {
+        "cache": {
+          "directory": "/tmp/ccls"
+        }
+      }
+    },
+    "efm": {
+      "command": "efm-langserver",
+      "args": [],
+      "filetypes": ["vim", "eruby", "markdown", "yaml"]
+    },
+    "typst": {
+      "command": "typst-lsp",
+      "filetypes": ["typst"],
+      "settings": {
+        "exportPdf": "never"
+      }
+    },
+    "rust": {
+      "command": "rust-analyzer",
+      "filetypes": ["rust"],
+      "rootPatterns": ["Cargo.toml"]
+    },
+    "racket": {
+      "command": "racket",
+      "args": ["-l", "racket-langserver"],
+      "filetypes": ["scheme", "rkt", "racket"]
+    },
+    "latex": {
+      "command": "texlab",
+      "filetypes": ["tex", "bib", "latex"]
+    },
+    "lean": {
+      "command": "/opt/homebrew/bin/lake",
+      "args": ["serve"],
+      "filetypes": ["lean"]
+    }
+  }
+}
