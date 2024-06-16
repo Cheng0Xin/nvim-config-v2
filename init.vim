@@ -7,7 +7,7 @@ set expandtab
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
-set clipboard=unnamed
+set clipboard=unnamedplus
 set foldmethod=indent
 
 filetype off
@@ -33,7 +33,7 @@ Plug 'preservim/nerdtree'                                           " File explo
 Plug 'godlygeek/tabular'                                            " Aligning text Tabularize / =
 Plug 'skywind3000/asyncrun.vim'                                     " Async execute shell commands
 Plug 'tpope/vim-commentary'                                         " Comment
-Plug 'neoclide/coc.nvim', {'branch': 'release'}                     " LSP
+Plug 'neoclide/coc.nvim', {'branch': 'master'}                     " LSP
 Plug 'arthurxavierx/vim-unicoder'                                   " Input unicode, C-] to end input
 Plug 'psliwka/vim-smoothie'                                         " Smooth scroll
 Plug 'tpope/vim-vividchalk'                                         " Pair the bracket (show different color)

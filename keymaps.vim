@@ -9,6 +9,10 @@ nnoremap <C-l> $
 vnoremap <C-h> ^
 vnoremap <C-l> $
 
+" make < > shifts keep selection
+vnoremap < <gv
+vnoremap > >gv
+
 " Movement tabs
 nnoremap <S-h> :tabprevious<CR>
 nnoremap <S-l> :tabnext<CR>

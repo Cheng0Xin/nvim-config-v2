@@ -5,4 +5,10 @@
 " endif
 
 " set background=dark
-colorscheme neofusion
+let g:dark = 'neofusion'
+let g:light = 'dayfox'
+
+execute 'colorscheme' g:dark
+
+command! CCDark call SetColorScheme(g:dark)
+command! CCLight call SetColorScheme(g:light)
