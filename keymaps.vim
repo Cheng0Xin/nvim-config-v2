@@ -63,10 +63,10 @@ function! FormatDocument()
     if CocHasProvider('format')
       Format
     else
-      normal! gg=G
+      " normal! gg=G
     endif
   else
-    normal! gg=G
+    " normal! gg=G
   endif
 endfunction
 command! CCF call FormatDocument()
