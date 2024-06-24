@@ -1,14 +1,23 @@
-" if exists('+termguicolors')
-"   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-"   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-"   set termguicolors
-" endif
-
-" set background=dark
-let g:dark = 'neofusion'
+let g:dark = 'fluoromachine'
 let g:light = 'dayfox'
 
-execute 'colorscheme' g:dark
+fu! StartsWith(longer, shorter) abort
+  return a:longer[0:len(a:shorter)-1] ==# a:shorter
+endfunction
+
+let g:color_path = stdpath('config') . "/../.color"
+
+if filereadable(g:color_path)
+  let ccback = system('cat ' . g:color_path)
+  " echo ccback
+  if StartsWith(ccback, "li")
+    execute 'colorscheme' g:light
+  else
+    execute 'colorscheme' g:dark
+  endif
+else
+  execute 'colorscheme' g:dark
+endif
 
 command! CCDark call SetColorScheme(g:dark)
 command! CCLight call SetColorScheme(g:light)

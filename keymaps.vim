@@ -87,7 +87,6 @@ function! TypstSetupMain()
   execute cmd
 endfunction
 
-
 " -----------------
 " Cyc select color scheme
 " -----------------
