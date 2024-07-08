@@ -56,6 +56,7 @@ Plug 'Shadorain/shadotheme'                                         " shado
 " Language support
 Plug 'kaarmu/typst.vim'                                             " Syntax hl for Typst
 Plug 'yaegassy/coc-pylsp', {'do': 'yarn install --frozen-lockfile'} " LSP for python
+Plug 'Olical/conjure'                                               " Clojure
 
 " Plugin for nvim
 Plug 'gen740/SmoothCursor.nvim'                                     " Smooth cursor

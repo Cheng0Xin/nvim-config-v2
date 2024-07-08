@@ -115,3 +115,9 @@ nnoremap <F7> :call CycSetColorScheme(g:list_of_colorschemes, -1)<CR>
 
 " Zen mode
 nnoremap <SPACE>z :ZenMode<CR>
+
+
+" -----------------
+" For clojure
+" -----------------
+let maplocalleader = ","
