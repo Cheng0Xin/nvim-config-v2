@@ -35,6 +35,7 @@ map T <Plug>Sneak_T
 nnoremap <SPACE>e :NERDTreeToggle<CR>
 nnoremap <SPACE>x :AsyncRun -cwd=<root> make<CR>
 nnoremap <SPACE>f :CCF<CR>
+nnoremap <SPACE>d :BufferClose<CR>
 inoremap <silent><expr> <c-x><c-o> coc#refresh()
 
 " ----------
@@ -58,18 +59,22 @@ nnoremap <SPACE>s :ToggleSpell<CR>
 " Format code
 " Function to conditionally format the document
 function! FormatDocument()
-  if exists(':CocCommand')
-    " Check if Coc formatting provider is available
-    if CocHasProvider('format')
-      Format
-    else
-      " normal! gg=G
-    endif
-  else
-    " normal! gg=G
-  endif
+  " if exists(':CocCommand')
+  "   " Check if Coc formatting provider is available
+  "   if CocHasProvider('format')
+  "     call CocAction('format')
+  "   else
+  "     " normal! gg=G
+  "   endif
+  " else
+  "   " normal! gg=G
+  " endif
+  lua <<EOF
+  require("conform").format({async=true})
+EOF
 endfunction
 command! CCF call FormatDocument()
+" command! -nargs=0 CCF :CocCommand prettier.forceFormatDocument
 
 " Tabularize
 command! -range -nargs=1 CCTab <line1>,<line2>Tabularize /<args>
@@ -121,3 +126,23 @@ nnoremap <SPACE>z :ZenMode<CR>
 " For clojure
 " -----------------
 let maplocalleader = ","
+
+" function! PlugCoc(info) abort
+"   if a:info.status ==? 'installed' || a:info.force
+"     !yarn install
+"     call coc#util#install_extension(join(get(s:, 'coc_extensions', [])))
+"   elseif a:info.status ==? 'updated'
+"     !yarn install
+"     call coc#util#update()
+"   endif
+"   call PlugRemotePlugins(a:info)
+" endfunction
+
+" let s:coc_extensions = [
+" \   'coc-json',
+" \   'coc-pyls',
+" \   'coc-prettier',
+" \   'coc-ultisnips'
+" \ ]
+
+" command! CCLspInstall call TypstSetupMain()

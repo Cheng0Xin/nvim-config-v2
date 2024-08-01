@@ -1,5 +1,9 @@
 {
   "languageserver": {
+    "kotlin": {
+      "command": "/Users/xin/Workspace/code-base/JVM/server/bin/kotlin-language-server",
+      "filetypes": ["kotlin"]
+    },
     "ccls": {
       "command": "ccls",
       "filetypes": ["c", "cpp", "objc", "objcpp"],
