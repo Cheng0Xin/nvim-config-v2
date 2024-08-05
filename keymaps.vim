@@ -58,23 +58,28 @@ nnoremap <SPACE>s :ToggleSpell<CR>
 " --------------
 " Format code
 " Function to conditionally format the document
+function! FormatDocumentCoC()
+  if exists(':CocCommand')
+    " Check if Coc formatting provider is available
+    if CocHasProvider('format')
+      call CocAction('format')
+    else
+      " normal! gg=G
+    endif
+  else
+    " normal! gg=G
+  endif
+endfunction
 function! FormatDocument()
-  " if exists(':CocCommand')
-  "   " Check if Coc formatting provider is available
-  "   if CocHasProvider('format')
-  "     call CocAction('format')
-  "   else
-  "     " normal! gg=G
-  "   endif
-  " else
-  "   " normal! gg=G
-  " endif
   lua <<EOF
   require("conform").format({async=true})
 EOF
 endfunction
 command! CCF call FormatDocument()
-" command! -nargs=0 CCF :CocCommand prettier.forceFormatDocument
+command! CCoCFormat call FormatDocumentCoC()
+
+" Setup spell check
+command! CCSpell :set spell
 
 " Tabularize
 command! -range -nargs=1 CCTab <line1>,<line2>Tabularize /<args>
